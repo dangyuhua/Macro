@@ -13,7 +13,6 @@
 #ifdef DEBUG
 #define DLog(...) NSLog(@"\n%s \n⚠️第%d行⚠️ \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 #else
-#define DLog(...)
 #endif
 
 
@@ -45,7 +44,7 @@
 //获取通知中心
 #define NotificationCenter [NSNotificationCenter defaultCenter]
 //NSUserDefaults
-#define uDefaults [NSUserDefaults standardUserDefaults]
+#define UserDefaults [NSUserDefaults standardUserDefaults]
 
 
 //色值
@@ -58,25 +57,28 @@
 //UIEdgeInsetsMake
 #define Edge(top,left,bottom,right)  UIEdgeInsetsMake(top, left, bottom, right)
 
+
 //一像素
 #define OnePixel 1/[UIScreen mainScreen].scale
 //状态栏高度
-#define kStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
+#define StatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
 //Navigation高度
-#define kNaviBarHeight [UINavigationBar appearance].frame.size.height
+#define NaviBarHeight [UINavigationBar appearance].frame.size.height
 //导航栏高度
-#define kTopBarHeight (kStatusBarHeight+kNaviBarHeight)
+#define TopBarHeight (Is_iPhoneX_Series ? 88.f : 64.f)
 //iphoneX标签栏高度
-#define kIphoneXTabBarHeight 83
+#define IphoneXTabBarHeight 83
 //标签栏高度
-#define kTabBarHeight [[UITabBarController alloc]init].tabBar.frame.size.height
+#define TabBarHeight (Is_iPhoneX_Series ? 49.f + 34.f : 49.f)
 
-#define is_iPhoneXS_Max (ScreenW == 414.f && ScreenH == 896.f)
-#define is_iPhoneX (ScreenW == 375.f && ScreenH == 812.f)
-#define is_iPhone8_Plus (ScreenW == 414.f && ScreenH == 736.f)
-#define is_iPhone8 (ScreenW == 375.f && ScreenH == 667.f)
-#define is_iPhone5 (ScreenW == 320 && ScreenH == 568.f)
-#define is_iPhone5_OR_LESS (ScreenW == 320 && ScreenH <= 568.f)
+
+#define Is_iPhoneXS_Max (ScreenW == 414.f && ScreenH == 896.f)
+#define Is_iPhoneX (ScreenW == 375.f && ScreenH == 812.f)
+#define Is_iPhone8_Plus (ScreenW == 414.f && ScreenH == 736.f)
+#define Is_iPhone8 (ScreenW == 375.f && ScreenH == 667.f)
+#define Is_iPhone5 (ScreenW == 320 && ScreenH == 568.f)
+#define Is_iPhone5_OR_LESS (ScreenW == 320 && ScreenH <= 568.f)
+#define Is_iPhoneX_Series (Is_iPhoneX||Is_iPhoneXS_Max)
 
 
 
