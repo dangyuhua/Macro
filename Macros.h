@@ -66,10 +66,8 @@
 #define NaviBarHeight [UINavigationBar appearance].frame.size.height
 //导航栏高度
 #define TopBarHeight (Is_iPhoneX_Series ? 88.f : 64.f)
-//iphoneX标签栏高度
-#define IphoneXTabBarHeight 83
 //标签栏高度
-#define TabBarHeight (Is_iPhoneX_Series ? 49.f + 34.f : 49.f)
+#define TabBarHeight (Is_iPhoneX_Series ? 83.f : 49.f)
 
 
 #define Is_iPhoneXS_Max (ScreenW == 414.f && ScreenH == 896.f)
