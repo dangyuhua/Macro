@@ -15,6 +15,8 @@
 #else
 #endif
 
+//NSError
+#define ErrorMsg(text) [NSError errorWithDomain:NSCocoaErrorDomain code:NSURLErrorNotConnectedToInternet userInfo:[NSDictionary dictionaryWithObject:text forKey:NSLocalizedDescriptionKey]]
 
 //获取当前版本号
 #define BUNDLE_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
@@ -24,7 +26,6 @@
 #define DIV_UUID [[[UIDevice currentDevice] identifierForVendor] UUIDString]
 
 
-//GCD
 //GCD - 延迟执行
 #define GCD_AFTER(time,afterBlock) dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), afterBlock)
 //GCD - 一次性执行
@@ -70,6 +71,7 @@
 #define TabBarHeight (Is_iPhoneX_Series ? 83.f : 49.f)
 
 
+//机型
 #define Is_iPhoneXS_Max (ScreenW == 414.f && ScreenH == 896.f)
 #define Is_iPhoneX (ScreenW == 375.f && ScreenH == 812.f)
 #define Is_iPhone8_Plus (ScreenW == 414.f && ScreenH == 736.f)
