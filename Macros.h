@@ -29,7 +29,7 @@
 //GCD - 延迟执行
 #define GCD_AFTER(time,afterBlock) dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), afterBlock)
 //GCD - 一次性执行
-#define GCD_ONCE_BLOCK(onceBlock) static dispatch_once_t onceToken; dispatch_once(&onceToken, onceBlock)
+#define GCD_ONCE(onceBlock) static dispatch_once_t onceToken; dispatch_once(&onceToken, onceBlock)
 //GCD - 异步主线程
 #define GCD_MAIN_QUEUE_ASYNC(mainBlock) dispatch_async(dispatch_get_main_queue(), mainBlock)
 //GCD - 异步子线程
