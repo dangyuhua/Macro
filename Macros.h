@@ -9,14 +9,18 @@
 #ifndef Macros_h
 #define Macros_h
 
+
 //高效率的NSLog
 #ifdef DEBUG
 #define DLog(...) NSLog(@"\n%s \n⚠️第%d行⚠️ \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 #else
+#define DLog(...)
 #endif
+
 
 //NSError
 #define ErrorMsg(text) [NSError errorWithDomain:NSCocoaErrorDomain code:NSURLErrorNotConnectedToInternet userInfo:[NSDictionary dictionaryWithObject:text forKey:NSLocalizedDescriptionKey]]
+
 
 //获取当前版本号
 #define BUNDLE_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
@@ -36,10 +40,6 @@
 #define GCD_GLOBAL_QUEUE_ASYNC(globalBlock) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), globalBlock);
 
 
-/** 屏幕高度 */
-#define ScreenH [UIScreen mainScreen].bounds.size.height
-/** 屏幕宽度 */
-#define ScreenW [UIScreen mainScreen].bounds.size.width
 //获取window
 #define WIN [UIApplication sharedApplication].delegate.window
 //获取通知中心
@@ -69,6 +69,10 @@
 #define TopBarHeight (Is_iPhoneX_Series ? 88.f : 64.f)
 //标签栏高度
 #define TabBarHeight (Is_iPhoneX_Series ? 83.f : 49.f)
+/** 屏幕高度 */
+#define ScreenH [UIScreen mainScreen].bounds.size.height
+/** 屏幕宽度 */
+#define ScreenW [UIScreen mainScreen].bounds.size.width
 
 
 //机型
